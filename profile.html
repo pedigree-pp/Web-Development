@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My website</title>
+    <style>
+        .box{
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .box:hover{
+            background-color: #f2f2f29f;
+            cursor: pointer;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            column-width: 200px;
+            margin-bottom: 20px;
+        }
+        td{
+            column-width: 500px;
+        }
+        tr:nth-child(even) { /* Add highlight only even row */
+            background-color: #D6EEEE;
+        }
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; font-family: Garamond, serif;">
+        <h1 style="font-size: 35px; margin: 0px; background-color: hsl(180deg 94.34% 36.55%); padding: 10px; color:white"> Profile page </h1>
+        <hr> <!-- this is horizontal line-->
+        <div style="margin-bottom: 10px;">
+            <img src="profile_01.JPG" width = 15% height= 25% >
+            <img src="profile_02.JPG" width = 34% height= 50% > 
+        </div>
+            <label> Enter the password to see my details</label>
+            <input type="password" placeholder="Password" id="password">
+            <button type="submit" onclick="checkPassword()">Submit</button>
+            <button type="submit" onclick="resetPassword()">Reset</button>
+        <p></p>
+        <table style="margin-left: auto;margin-right: auto;" class="hidden" id="detail">
+            <tr>
+                <th>Name-Surname</th>
+                <td>Mr.Suwira Pattarawuttinan</td>
+            </tr>
+            <tr>
+                <th>Education</th>
+                <td>Computer engineering @Chulalongkorn University (junior)</td>
+            </tr>
+            <tr>
+                <th>Ability</th>
+                <td>Swimming, Drawing, Sleeping, computer engineering skills</td>
+            </tr>
+            <tr>
+                <th>Favorite Food</th>
+                <td>Spaghetti, Icecream, etc.</td>
+            </tr>
+            <tr>
+                <th>Telephone number</th>
+                <td>096-594-6643</td>
+            </tr>
+            <tr>
+                <th>Email (Chulalongkorn)</th>
+                <td>6731364421@student.chula.ac.th</td>
+            </tr>
+        </table>
+        <div id="error_password" class="hidden" style="margin:20px"></div>
+        <hr>
+        <div style= "background-color: hsl(180deg 94.34% 36.55%); padding: 20px;">
+            <a href="contact.html" class = "box">contact</a>
+            <a href="products.html" class = "box">product</a>
+            <a href="index.html" class = "box">index</a>
+        </div>
+    </div>
+    <script>
+        function checkPassword(){
+            let pw = document.getElementById("password").value;
+            if(pw == "Chicken"){
+                document.getElementById("error_password").classList.add("hidden");
+                document.getElementById("detail").classList.remove("hidden");
+                document.getElementById("password").value = "";
+            }else{
+                document.getElementById("error_password").classList.remove("hidden");
+                document.getElementById("detail").classList.add("hidden");
+                document.getElementById("password").value = "";
+
+                // Adding Style
+                document.getElementById("error_password").innerHTML = "Incorrect password. Please try again.";
+                document.getElementById("error_password").style.color = "red";
+                document.getElementById("error_password").style.fontWeight = "bold";
+            }
+        }
+
+        function resetPassword(){
+            document.getElementById("password").value = "";
+            document.getElementById("detail").classList.add("hidden");
+            document.getElementById("error_password").classList.add("hidden");
+        }
+    </script>
+</body>
+</html>

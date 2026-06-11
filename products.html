@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My website</title>
+    <style>
+        .box{
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .box:hover{
+            background-color: #f2f2f29f;
+            cursor: pointer;
+        }
+        td{
+            padding: 5px 50px;
+            white-space: nowrap; /* Set the word in one row*/
+        }
+        th{
+            background-color: hsl(0, 100%, 30%);
+            color: white;
+            padding: 5px 50px;
+            white-space: nowrap;
+        }
+        .image{
+            width: 20%; 
+            height: 20%;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; font-family: Garamond, serif;">
+        <h1 style="font-size: 35px; margin: 0px; background-color: hsl(0, 100%, 30%); padding: 10px; color:white"> Product page </h1>
+        <hr> <!-- this is horizontal line-->
+        <form style="line-height: 2;">
+            <label for="fav_food">Favorite food</label>
+            <input placeholder="Enter your favorite food" type="text" name="fav_food">
+            <label for="fav_bev">Favorite beverage</label>
+            <input placeholder="Enter your favorite beverage" type="text" name="fav_bev">
+            <button type="submit">Send</button>
+        </form>
+        <table border="1" style="margin-left: auto;margin-right: auto; column-gap: 20px;"> <!-- create empty space on its left/right side or to horizontally center it-->    
+                <th>Food Product</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Amounts</th>
+            </tr>
+            <tr>
+                <td>Steak</td>
+                <td style="text-align: left;">- This is a special menu of this place</td>
+                <td>500 Baht</td>
+                <td><input type="number" id="amount1"></td>
+            </tr>
+            <tr>
+                <td>Spaghetti</td>
+                <td style="text-align: left;">- The special maincourse of this night</td>
+                <td>200 Baht</td>
+                <td><input type="number" id="amount2"></td>
+            </tr>
+            <tr>
+                <td>Hamburger</td>
+                <td style="text-align: left;">- The best sailer of this month</td>
+                <td>100 Baht</td>
+                <td><input type="number" id="amount3"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color: hsl(0, 100%, 30%); color:#f2f2f2">Total Price</td>
+                <td><button type="submit" onclick="caluculatePrice()">caluculate</button></td>
+                <td id="total_price"></td>
+            </tr>
+        </table>
+        <p></p>
+        <img src="product_01.jpg" alt="This is a steak" class="image">
+        <img src="product_02.jpg" alt="This is a steak" class="image">
+        <img src="product_03.jpg" alt="This is a steak" class="image" style="width:15%; height:15%;">
+        <!-- <img src="product_01.jpg" alt="This is a steak" width= 800px; height= 500px;> -->
+        <hr>
+        <p></p>
+        <div style= "background-color: hsl(0, 100%, 30%); padding: 20px;">
+            <a href="contact.html" class = "box">contact</a>
+            <a href="profile.html" class = "box">profile</a>
+            <a href="index.html" class = "box">index</a>
+        </div>
+    </div>
+    <script>
+        function caluculatePrice(){
+            let amt1 = document.getElementById("amount1").value;
+            let amt2 = document.getElementById("amount2").value;
+            let amt3 = document.getElementById("amount3").value;
+            let price;
+            if(amt1 == "" || amt2 == "" || amt3 == ""){
+                price = "Please enter amounts of product"
+                document.getElementById("total_price").innerHTML = price;
+            }else{
+                price = parseInt(amt1)*500 + parseInt(amt2)*200 + parseInt(amt3)*100
+                document.getElementById("total_price").innerHTML = price+" baht";
+            }
+        }
+    </script>
+</body>
+</html>
