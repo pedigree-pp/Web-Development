@@ -3,17 +3,6 @@
 <head>
     <title>My website</title>
     <style>
-        .box{
-            background-color: #f2f2f2;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .box:hover{
-            background-color: #f2f2f29f;
-            cursor: pointer;
-        }
         td{
             padding: 5px 50px;
             white-space: nowrap; /* Set the word in one row*/
@@ -30,11 +19,20 @@
             margin: 5px;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div style="text-align: center; font-family: Garamond, serif;">
-        <h1 style="font-size: 35px; margin: 0px; background-color: hsl(0, 100%, 30%); padding: 10px; color:white"> Product page </h1>
-        <hr> <!-- this is horizontal line-->
+        <div class="iconBox">
+            <!-- A <p> element is a block element, so it takes up the entire line by itself. That's why:-->
+            <!-- <span> is an inline element -->
+            <span style="font: bold;">Suwira</span>
+            <div>
+                <a href="contact.html">contact</a>
+                <a href="profile.html">profile</a>
+                <a href="index.html">index</a>
+            </div>
+        </div>
         <form style="line-height: 2;">
             <label for="fav_food">Favorite food</label>
             <input placeholder="Enter your favorite food" type="text" name="fav_food">
@@ -77,13 +75,6 @@
         <img src="product_02.jpg" alt="This is a steak" class="image">
         <img src="product_03.jpg" alt="This is a steak" class="image" style="width:15%; height:15%;">
         <!-- <img src="product_01.jpg" alt="This is a steak" width= 800px; height= 500px;> -->
-        <hr>
-        <p></p>
-        <div style= "background-color: hsl(0, 100%, 30%); padding: 20px;">
-            <a href="contact.html" class = "box">contact</a>
-            <a href="profile.html" class = "box">profile</a>
-            <a href="index.html" class = "box">index</a>
-        </div>
     </div>
     <script>
         function caluculatePrice(){

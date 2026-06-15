@@ -3,17 +3,6 @@
 <head>
     <title>My website</title>
     <style>
-        .box{
-            background-color: #f2f2f2;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .box:hover{
-            background-color: #f2f2f29f;
-            cursor: pointer;
-        }
         table,th,td{
             border: 1px solid black;
             border-collapse: collapse;
@@ -30,12 +19,21 @@
             display:none;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div style="text-align: center; font-family: Garamond, serif;">
-        <h1 style="font-size: 35px; margin: 0px; background-color: hsl(180deg 94.34% 36.55%); padding: 10px; color:white"> Profile page </h1>
-        <hr> <!-- this is horizontal line-->
-        <div style="margin-bottom: 10px;">
+        <div class="iconBox">
+            <!-- A <p> element is a block element, so it takes up the entire line by itself. That's why:-->
+            <!-- <span> is an inline element -->
+            <span style="font: bold;">Suwira</span>
+            <div>
+                <a href="contact.html">contact</a>
+                <a href="products.html">product</a>
+                <a href="index.html">index</a>
+            </div>
+        </div>
+        <div style="margin: 20px;">
             <img src="profile_01.JPG" width = 15% height= 25% >
             <img src="profile_02.JPG" width = 34% height= 50% > 
         </div>
@@ -71,12 +69,6 @@
             </tr>
         </table>
         <div id="error_password" class="hidden" style="margin:20px"></div>
-        <hr>
-        <div style= "background-color: hsl(180deg 94.34% 36.55%); padding: 20px;">
-            <a href="contact.html" class = "box">contact</a>
-            <a href="products.html" class = "box">product</a>
-            <a href="index.html" class = "box">index</a>
-        </div>
     </div>
     <script>
         function checkPassword(){

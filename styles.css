@@ -1,0 +1,50 @@
+#todolisBox{
+    width: 300px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+
+    /* padding: top&bottom left&right */
+    padding: 20px 30px; 
+    margin: 20px auto;
+
+    /* Make Box more impactful */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: [Horizontal Offset] [Vertical Offset] [Blur Radius] [Spread Radius] [Color]; */
+}
+.iconBox{
+    /* Use max width to set the max size of
+    Sets a limit: the element can be smaller than its parent, but it cannot be wider. */
+    max-width: 75%;
+    padding: 10px 30px;
+    border-color: black;
+    border-radius: 100px;
+    margin: 20px auto;
+    text-align: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    /* What is display flex?? 
+    Before flex:
+        Suwira products profile contact
+    After flex + space-between:
+        Suwira               products profile contact
+    */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+.box{
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+.box:hover{
+    background-color: #f2f2f29f;
+    cursor: pointer;
+}
