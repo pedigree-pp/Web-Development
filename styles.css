@@ -48,3 +48,6 @@ a{
     background-color: #f2f2f29f;
     cursor: pointer;
 }
+.hidden{
+    display:none;
+}
