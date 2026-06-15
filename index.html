@@ -2,18 +2,116 @@
 <html lang="en">
 <head>
     <title>Index</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 35px; 
+            margin: 10px; 
+            background-color: hsl(114, 95%, 36%);
+            color:white;
+            font-size: 35px;
+        }
+        #todolisBox{
+            width: 300px;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+
+            /* padding: top&bottom left&right */
+            padding: 20px 30px; 
+            margin: 20px auto;
+
+            /* Make Box more impactful */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            /* box-shadow: [Horizontal Offset] [Vertical Offset] [Blur Radius] [Spread Radius] [Color]; */
+        }
+        .iconBox{
+            /* Use max width to set the max size of
+            Sets a limit: the element can be smaller than its parent, but it cannot be wider. */
+            max-width: 75%;
+            padding: 10px 30px;
+            border-color: black;
+            border-radius: 100px;
+            margin: auto;
+            margin-top: 20px;
+            text-align: right;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+            /* What is display flex?? 
+            Before flex:
+                Suwira products profile contact
+            After flex + space-between:
+                Suwira               products profile contact
+            */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center;">
-        <h1 style="text-align: center;font-size: 35px;">This is index page</h1>
-        <h2> What is this, I don't know about this page</h2>
-        <a href="products.html">products</a>
-        <a href="profile.html">profile</a>
-        <a href="contact.html">contact</a>
+    <div style="text-align: center; font-family: Garamond, serif;">
+        <div class="iconBox">
+            <!-- A <p> element is a block element, so it takes up the entire line by itself. That's why:-->
+            <!-- <span> is an inline element -->
+            <span style="font: bold;">Suwira</span>
+            <div>
+                <a href="products.html">products</a>
+                <a href="profile.html">profile</a>
+                <a href="contact.html">contact</a>
+            </div>
+        </div>
+        <div id="todolisBox">
+            <div style="margin:10px">
+                <input type="text" placeholder="Please enter todolist" id="item">
+                <button type="submit" id="submit">Add</button>
+            </div>
+            <div id="todolist" style="text-align: left; padding-left: 0px; display:block"></div>
+            <!--To tell your <ul> tag to stop using its built-in browser padding and start right 
+                at the edge of the container, add padding-left: 0; to its styles.-->
+        </div>
     </div>
     <script>
-        console.log("This is from github")
-        console.log("Create new branch")
+        const addButton = document.getElementById("submit")
+        addButton.addEventListener("click",function(){
+            const itemValue = document.getElementById("item").value;
+            const todolist = document.getElementById("todolist");
+                /*
+                const ele = document.createElement("p");
+                ele.innerHTML = item
+                const list = document.getElementById("todolist");
+                list.appendChild(ele)
+                */
+            if(item != ""){
+                // create div to add text & button
+                const block = document.createElement("div");
+                block.style.margin = "0px";
+                block.style.display = "flex";
+                block.style.justifyContent = "space-between";
+                block.style.alignItems = "center";
+
+                // create text & button
+                const text = document.createElement("p"); // p is paragraph
+                const removeButton = document.createElement("button");
+                removeButton.innerHTML = "remove";
+                removeButton.style.padding = "0px 0px";
+                
+                text.innerHTML = itemValue;
+
+                removeButton.addEventListener("click",function(){
+                    block.remove();
+                })
+
+                block.appendChild(text);
+                block.appendChild(removeButton);
+
+                todolist.appendChild(block);
+            }
+        })
     </script>
 </body>
 </html>
